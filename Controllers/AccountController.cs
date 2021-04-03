@@ -52,5 +52,47 @@ namespace EFDbFirstApprochExample.Controllers
             }
            
         }
+
+        public ActionResult Login()
+        {
+            return View( new LoginViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel loginView)
+        {
+            ApplicationDbContext dbContext = new ApplicationDbContext();
+            ApplicationUserStore userStore = new ApplicationUserStore(dbContext);
+            ApplicationUserManager userManager = new ApplicationUserManager(userStore);
+            var user = userManager.Find(loginView.Username, loginView.Password);
+            if(user != null)
+            {
+                var authenticationManager = HttpContext.GetOwinContext().Authentication;
+                var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                authenticationManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties(), userIdentity);
+
+                if(userManager.IsInRole(user.Id,"Admin"))
+                {
+                    return RedirectToAction("Index", "Home", new { area = "Admin" });
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+               
+            }
+            else
+            {
+                ModelState.AddModelError("My Error", "Invalid UserName or Password");
+                return View();
+            }
+        }
+
+        public ActionResult Logout()
+        {
+            var authenticationManager = HttpContext.GetOwinContext().Authentication;
+            authenticationManager.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

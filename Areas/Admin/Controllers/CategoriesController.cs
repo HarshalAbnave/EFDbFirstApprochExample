@@ -1,15 +1,15 @@
-﻿using System;
+﻿using EFDbFirstApprochExample.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using EFDbFirstApprochExample.Models;
 
-namespace EFDbFirstApprochExample.Controllers
+namespace EFDbFirstApprochExample.Areas.Admin.Controllers
 {
     public class CategoriesController : Controller
     {
-        // GET: Categories
+        // GET: Admin/Categories
         public ActionResult Index()
         {
             CompanyDbContext db = new CompanyDbContext();
