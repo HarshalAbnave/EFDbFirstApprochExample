@@ -10,12 +10,13 @@ namespace EFDbFirstApprochExample.Filters
     {
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            throw new NotImplementedException();
+            filterContext.Controller.ViewBag.NoOfVisitorsOfTheDay = 60;
         }
 
         public void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            throw new NotImplementedException();
+           
+            filterContext.Controller.ViewBag.NoOfVisitorsOfTheDay = 50;
         }
     }
 }

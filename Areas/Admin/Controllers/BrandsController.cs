@@ -1,9 +1,8 @@
-﻿using EFDbFirstApprochExample.Models;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Company.DomainModels;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using Company.DataLayer;
 
 namespace EFDbFirstApprochExample.Areas.Admin.Controllers
 {

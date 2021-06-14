@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using EFDbFirstApprochExample.Models;
 using EFDbFirstApprochExample.Filters;
+using Company.DataLayer;
+using Company.DomainModels;
 
 namespace EFDbFirstApprochExample.Controllers
 {

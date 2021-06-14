@@ -247,6 +247,7 @@
     <Content Include="Areas\Admin\Views\Products\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BrandsController.cs" />
@@ -297,10 +298,6 @@
       <DependentUpon>202103281112581_RequiredValidationWithChanges3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Brand.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\CompanyDbContext.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -371,6 +368,24 @@
     <EmbeddedResource Include="Migrations\202103281112581_RequiredValidationWithChanges3.resx">
       <DependentUpon>202103281112581_RequiredValidationWithChanges3.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Company.DataLayer\Company.DataLayer.csproj">
+      <Project>{6a9f2400-ba63-45ba-8757-0f87f07363c9}</Project>
+      <Name>Company.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.DomainModels\Company.DomainModels.csproj">
+      <Project>{38afad93-ecfe-4db8-9403-a4f7bbbed2cd}</Project>
+      <Name>Company.DomainModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.ServiceContracts\Company.ServiceContracts.csproj">
+      <Project>{66b855da-15da-4d87-b939-979493945698}</Project>
+      <Name>Company.ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.ServiceLayer\Company.ServiceLayer.csproj">
+      <Project>{2533575e-c981-4944-a41b-a900ee9f3290}</Project>
+      <Name>Company.ServiceLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

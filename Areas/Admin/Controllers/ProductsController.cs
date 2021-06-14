@@ -1,4 +1,5 @@
-﻿using EFDbFirstApprochExample.Models;
+﻿using Company.DataLayer;
+using Company.DomainModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
